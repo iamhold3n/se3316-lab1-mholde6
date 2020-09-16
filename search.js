@@ -15,6 +15,15 @@ function searchNumber()
     hidePokemon();
 
     // find matches for search
+    let maxsearch = 0;
+    for (i = 0; i < pokemon.length; i++) {
+        let data = pokemon[i].getElementsByTagName("span");
+        if (!data[0].innerHTML.search(num)) {
+            pokemon[i].style.display = "block";
+            maxsearch++;
+        }
+        if (maxsearch == 5) return;
+    }
 }
 function searchName()
 {
