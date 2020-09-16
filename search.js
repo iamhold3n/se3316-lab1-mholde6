@@ -25,6 +25,10 @@ function searchName()
         alert("Invalid input, must be alphabetical characters");
         return;
     }
+    if(nm.length > 20) {
+        alert("Invalid input, must be less than 20 characters");
+        return;
+    }
     resetSearch();
     hidePokemon();
     searchPokemon(nm.toLowerCase(), 1);
