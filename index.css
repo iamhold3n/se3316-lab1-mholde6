@@ -8,7 +8,7 @@ body {
     width: 750px;
     padding: 10px;
     background-color: rgb(184, 6, 6);
-    border: 1px solid rgb(136, 5, 5);
+    border: 2px solid rgb(136, 5, 5);
     border-radius: 25px;
 }
 #poketitle {
@@ -17,14 +17,40 @@ body {
     font-weight: 900;
     float: right;
     padding: 20px;
+    -webkit-text-stroke: 1px rgb(136, 5, 5);
+}
+.search {
+    float: left;
+    clear: right;
+    width: 300px;
+    background-color: rgb(136, 5, 5);
+    border: 1px solid rgb(136, 5, 5);
+    border-radius: 5px;
+    padding: 3px;
+    margin: 33px;
+    margin-bottom: 90px;
+}
+.search input,button {
+    color: rgb(204, 7, 7);
+    font-size: 18px;
+    background-color: rgb(136, 5, 5);
+    border: none;
+    padding: 0;
+}
+.search input {
+    width: 280px;
+}
+input:focus {
+    border: none;
 }
 ul {
     margin: auto;
     width: 700px;
     background-color: black;
     padding: 0;
-    border: 1px solid rgb(136, 5, 5);
+    border: 2px solid rgb(136, 5, 5);
     border-radius: 25px;
+    margin-top: 90px;
     margin-bottom: 50px;
 }
 ul li {
@@ -53,6 +79,7 @@ ul li {
     padding: 5px;
 }
 .image {
+    margin-top: 5px;
     background-color: white;
     padding: 10px;
     border: 1px solid none;
