@@ -1,4 +1,5 @@
 var pokemon;
+getPokemon();
 function searchNumber()
 {
     // validate input
@@ -11,19 +12,10 @@ function searchNumber()
         alert("Invalid input, must be between 1 and 20.");
         return;
     }
-    getPokemon();
+    resetSearch();
     hidePokemon();
-
-    // find matches for search
-    let maxsearch = 0;
-    for (i = 0; i < pokemon.length; i++) {
-        let data = pokemon[i].getElementsByTagName("span");
-        if (data[0].innerHTML.match(num)) {
-            pokemon[i].style.display = "block";
-            maxsearch++;
-        }
-        if (maxsearch == 5) return;
-    }
+    searchPokemon(num, 0);
+    document.getElementById("snumber").value = "";
 }
 function searchName()
 {
@@ -33,14 +25,16 @@ function searchName()
         alert("Invalid input, must be alphabetical characters");
         return;
     }
-    getPokemon();
+    resetSearch();
     hidePokemon();
-
-    // find matches for search
+    searchPokemon(nm.toLowerCase(), 1);
+    document.getElementById("sname").value = "";
+}
+function searchPokemon(term, mode) {
     let maxsearch = 0;
     for (i = 0; i < pokemon.length; i++) {
         let data = pokemon[i].getElementsByTagName("span");
-        if (data[1].innerHTML.match(nm)) {
+        if (data[mode].innerHTML.toLowerCase().match(term)) {
             pokemon[i].style.display = "block";
             maxsearch++;
         }
@@ -54,5 +48,10 @@ function getPokemon() {
 function hidePokemon() {
     for (i = 0; i < pokemon.length; i++) {
         pokemon[i].style.display = "none";
+    }
+}
+function resetSearch() { // allow for multiple searches without reloading page
+    for (i = 0; i < pokemon.length; i++) {
+        pokemon[i].style.display = "block";
     }
 }
