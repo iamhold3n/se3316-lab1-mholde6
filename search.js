@@ -18,7 +18,7 @@ function searchNumber()
     let maxsearch = 0;
     for (i = 0; i < pokemon.length; i++) {
         let data = pokemon[i].getElementsByTagName("span");
-        if (!data[0].innerHTML.search(num)) {
+        if (data[0].innerHTML.match(num)) {
             pokemon[i].style.display = "block";
             maxsearch++;
         }
@@ -37,6 +37,15 @@ function searchName()
     hidePokemon();
 
     // find matches for search
+    let maxsearch = 0;
+    for (i = 0; i < pokemon.length; i++) {
+        let data = pokemon[i].getElementsByTagName("span");
+        if (data[1].innerHTML.match(nm)) {
+            pokemon[i].style.display = "block";
+            maxsearch++;
+        }
+        if (maxsearch == 5) return;
+    }
 }
 function getPokemon() {
     let pokedex = document.getElementById("pokedex");
