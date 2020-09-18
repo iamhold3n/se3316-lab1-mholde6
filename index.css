@@ -118,6 +118,27 @@ ul li {
 .normal {
     background-color: rgb(110, 110, 110);
 }
+.statcontainer {
+    background-color: white;
+    font-weight: 900;
+    font-size: 12px;
+    padding: 10px;
+}
+.stat {
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 5px;
+}
+.statvalue {
+    color: black;
+    border: 1px solid black;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 5px;
+}
 .desc {
     background-color: white;
     padding: 10px;
