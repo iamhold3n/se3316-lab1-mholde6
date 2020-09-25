@@ -51,6 +51,9 @@ ul li {
     margin-bottom: 50px;
     width: 625px;
 }
+#searchresults {
+    display: none;
+}
 .number {
     color: white;
     font-weight: 900;

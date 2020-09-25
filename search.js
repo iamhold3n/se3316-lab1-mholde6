@@ -1,4 +1,4 @@
-let pokemonlist = [{number: 1, name: "Bulbasaur", type1: "GRASS", type2: "POISON", HP: 45, ATK: 49, DEF: 49, SPATK: 65, SPDEF: 65, SPD: 45, desc: "A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON."},
+let pokemonList = [{number: 1, name: "Bulbasaur", type1: "GRASS", type2: "POISON", HP: 45, ATK: 49, DEF: 49, SPATK: 65, SPDEF: 65, SPD: 45, desc: "A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON."},
             {number: 2, name: "Ivysaur", type1: "GRASS", type2: "POISON", HP: 60, ATK: 62, DEF: 63, SPATK: 80, SPDEF: 80, SPD: 60, desc: "When the bulb on its back grows large, it appears to lose the ability to stand on its hind legs."},
             {number: 3, name: "Venasaur", type1: "GRASS", type2: "POISON", HP: 80, ATK: 82, DEF: 83, SPATK: 100, SPDEF: 100, SPD: 80, desc: "The plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight."},
             {number: 4, name: "Charmander", type1: "FIRE", type2: null, HP: 39, ATK: 52, DEF: 43, SPATK: 60, SPDEF: 50, SPD: 65, desc: "Obviously prefers hot places. When it rains, steam is said to spout from the tip of its tail."},
@@ -20,42 +20,42 @@ let pokemonlist = [{number: 1, name: "Bulbasaur", type1: "GRASS", type2: "POISON
             {number: 20, name: "Raticate", type1: "NORMAL", type2: null, HP: 55, ATK: 81, DEF: 60, SPATK: 50, SPDEF: 70, SPD: 97, desc: "It uses its whiskers to maintain its balance. It apparently slows down if they are cut off."}]
 var pokemon;
 getPokemon();
-populateList();
-function populateList() {
-    let pokedex = document.getElementById("initial");
+populateList(pokemonList, "initial", pokemonList.length);
+function populateList(list, location, num) {
+    let pokedex = document.getElementById(location);
 
-    for (i = 0; i < pokemonlist.length; i++) {
+    for (i = 0; i < num; i++) {
         let pokemonEntry = document.createElement("li");
         let number = document.createElement("span");
         number.className = "number";
-        let numberData = document.createTextNode(pokemonlist[i].number);
+        let numberData = document.createTextNode(list[i].number);
         number.appendChild(numberData);
         pokemonEntry.appendChild(number);
 
         let name = document.createElement("span");
         name.className = "name";
-        let nameData = document.createTextNode(pokemonlist[i].name);
+        let nameData = document.createTextNode(list[i].name);
         name.appendChild(nameData);
         pokemonEntry.appendChild(name);
 
         let image = document.createElement("div");
         image.className = "image";
         let imageImg = document.createElement("img");
-        imageImg.src = "images/" + pokemonlist[i].number + ".png";
+        imageImg.src = "images/" + list[i].number + ".png";
         image.appendChild(imageImg);
         pokemonEntry.appendChild(image);
 
         let typeContainer = document.createElement("div");
         typeContainer.className = "typecontainer";
         let type1 = document.createElement("span");
-        type1.className = "type " + pokemonlist[i].type1.toLowerCase();
-        let type1Data = document.createTextNode(pokemonlist[i].type1);
+        type1.className = "type " + pokemonList[i].type1.toLowerCase();
+        let type1Data = document.createTextNode(list[i].type1);
         type1.appendChild(type1Data);
         typeContainer.appendChild(type1);
-        if (pokemonlist[i].type2 != null) {
+        if (list[i].type2 != null) {
             let type2 = document.createElement("span");
-            type2.className = "type " + pokemonlist[i].type2.toLowerCase();
-            let type2Data = document.createTextNode(pokemonlist[i].type2);
+            type2.className = "type " + list[i].type2.toLowerCase();
+            let type2Data = document.createTextNode(list[i].type2);
             type2.appendChild(type2Data);
             typeContainer.appendChild(type2);
         }
@@ -70,7 +70,7 @@ function populateList() {
         statContainer.appendChild(hp);
         let hpVal = document.createElement("span");
         hpVal.className = "statvalue";
-        let hpValData = document.createTextNode(pokemonlist[i].HP);
+        let hpValData = document.createTextNode(list[i].HP);
         hpVal.appendChild(hpValData);
         statContainer.appendChild(hpVal);
 
@@ -81,7 +81,7 @@ function populateList() {
         statContainer.appendChild(atk);
         let atkVal = document.createElement("span");
         atkVal.className = "statvalue";
-        let atkValData = document.createTextNode(pokemonlist[i].ATK);
+        let atkValData = document.createTextNode(list[i].ATK);
         atkVal.appendChild(atkValData);
         statContainer.appendChild(atkVal);
 
@@ -92,7 +92,7 @@ function populateList() {
         statContainer.appendChild(def);
         let defVal = document.createElement("span");
         defVal.className = "statvalue";
-        let defValData = document.createTextNode(pokemonlist[i].DEF);
+        let defValData = document.createTextNode(list[i].DEF);
         defVal.appendChild(defValData);
         statContainer.appendChild(defVal);
 
@@ -103,7 +103,7 @@ function populateList() {
         statContainer.appendChild(spatk);
         let spatkVal = document.createElement("span");
         spatkVal.className = "statvalue";
-        let spatkValData = document.createTextNode(pokemonlist[i].SPATK);
+        let spatkValData = document.createTextNode(list[i].SPATK);
         spatkVal.appendChild(spatkValData);
         statContainer.appendChild(spatkVal);
 
@@ -114,7 +114,7 @@ function populateList() {
         statContainer.appendChild(spdef);
         let spdefVal = document.createElement("span");
         spdefVal.className = "statvalue";
-        let spdefValData = document.createTextNode(pokemonlist[i].SPDEF);
+        let spdefValData = document.createTextNode(list[i].SPDEF);
         spdefVal.appendChild(spdefValData);
         statContainer.appendChild(spdefVal);
 
@@ -125,7 +125,7 @@ function populateList() {
         statContainer.appendChild(spd);
         let spdVal = document.createElement("span");
         spdVal.className = "statvalue";
-        let spdValData = document.createTextNode(pokemonlist[i].SPD);
+        let spdValData = document.createTextNode(list[i].SPD);
         spdVal.appendChild(spdValData);
         statContainer.appendChild(spdVal);
         
@@ -133,7 +133,7 @@ function populateList() {
 
         let desc = document.createElement("div");
         desc.className = "desc";
-        let descData = document.createTextNode(pokemonlist[i].desc);
+        let descData = document.createTextNode(list[i].desc);
         desc.appendChild(descData);
         pokemonEntry.appendChild(desc);
 
@@ -191,11 +191,6 @@ function searchPokemon(term, mode) {
 function getPokemon() { // grab only pokemon list elements, not references list
     let pokedex = document.getElementById("pokedex");
     pokemon = pokedex.getElementsByTagName("li");
-
-    for (i = 0; i < 20; i++)
-    {
-        console.log(pokemonlist[i].name);
-    }
 }
 function hidePokemon() { // hide all pokemon list elements
     for (i = 0; i < pokemon.length; i++) {
@@ -205,5 +200,16 @@ function hidePokemon() { // hide all pokemon list elements
 function resetSearch() { // allow for multiple searches without reloading page
     for (i = 0; i < pokemon.length; i++) {
         pokemon[i].style.display = "block";
+    }
+}
+function searchPokemon2(term, mode) {
+    let maxSearch = 0; // initialize maximum search results
+    let searchResults = [];
+    for (i = 0; i < pokemonList.length; i++) {
+        if (pokemonList[i][mode].toLowerCase().match(term)) {
+            searchResults.push(pokemonList[i]);
+            maxSearch++;
+        }
+        if (maxSearch == 5) return;
     }
 }
