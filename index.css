@@ -87,6 +87,7 @@ ul li {
     border: 1px solid none;
     border-radius: 5px;
     padding: 5px;
+    margin-right: 5px;
 }
 .grass {
     background-color: rgb(9, 155, 9);
@@ -129,6 +130,7 @@ ul li {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 5px;
+    margin-right: 5px;
 }
 .desc {
     background-color: white;
