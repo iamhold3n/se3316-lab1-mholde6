@@ -173,6 +173,9 @@ function searchPokemon(term, mode) {
     // display search results area
     let searchList = document.getElementById("searchresults");
     searchList.style.display = 'block';
+    // fix spacing between search and initial list
+    let pokeInitial = document.getElementById("initial");
+    pokeInitial.style.marginTop = '40px';
 
     // reset search result area, stop when reach search title
     while (searchList.lastElementChild != searchList.firstElementChild) {
