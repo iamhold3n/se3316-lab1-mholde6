@@ -52,7 +52,12 @@ ul li {
     width: 625px;
 }
 #searchresults {
+    color: white;
     display: none;
+    margin-bottom: 0px;
+}
+#searchtitle {
+    font-weight: 900;
 }
 .number {
     color: white;

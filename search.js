@@ -217,5 +217,11 @@ function searchPokemon(term, mode) {
         if (maxSearch == 5) break; // end search results at maximum of 5 pokemon
     }
 
-    populateList(searchResults, "searchresults", searchResults.length); // populate search area with results
+    if (searchResults.length != 0) populateList(searchResults, "searchresults", searchResults.length); // populate search area with results
+    else { // report no search results
+        let noResults = document.createElement("li");
+        let noResultsText = document.createTextNode("No results for that search term.");
+        noResults.appendChild(noResultsText);
+        searchList.appendChild(noResults);
+    }
 }
