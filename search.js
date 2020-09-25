@@ -18,10 +18,9 @@ let pokemonList = [{number: '1', name: "Bulbasaur", type1: "GRASS", type2: "POIS
             {number: '18', name: "Pidgeot", type1: "NORMAL", type2: "FLYING", HP: 83, ATK: 80, DEF: 75, SPATK: 70, SPDEF: 70, SPD: 101, desc: "When hunting, it skims the surface of water at high speed to pick off unwary prey such as MAGIKARP."},
             {number: '19', name: "Rattata", type1: "NORMAL", type2: null, HP: 30, ATK: 56, DEF: 35, SPATK: 25, SPDEF: 35, SPD: 72, desc: "Bites anything when it attacks. Small and very quick, it is a common sight in many places."},
             {number: '20', name: "Raticate", type1: "NORMAL", type2: null, HP: 55, ATK: 81, DEF: 60, SPATK: 50, SPDEF: 70, SPD: 97, desc: "It uses its whiskers to maintain its balance. It apparently slows down if they are cut off."}]
-var pokemon;
-getPokemon();
+
 populateList(pokemonList, "initial", pokemonList.length);
-function populateList(list, location, num) {
+function populateList(list, location, num) { // grab and display all pokemon from list in pokedex
     let pokedex = document.getElementById(location);
 
     for (i = 0; i < num; i++) {
@@ -170,42 +169,15 @@ function searchName()
     searchPokemon(nm.toLowerCase(), 'name');
     document.getElementById("sname").value = ""; // reset search input
 }
-/*function searchPokemon(term, mode) {
-    resetSearch();
-    hidePokemon();
-    let maxsearch = 0; // reset maximum search results
-    for (i = 0; i < pokemon.length; i++) {
-        // get pokemon number and name and store as array
-        // [0] represents search by number
-        // [1] represents search by name
-        let data = pokemon[i].getElementsByTagName("span");
-
-        // find and display pokemon matching search term (and mode)
-        if (data[mode].innerHTML.toLowerCase().match(term)) {
-            pokemon[i].style.display = "block";
-            maxsearch++;
-        }
-        if (maxsearch == 5) return; // end search results at maximum of 5 pokemon
-    }
-}*/
-function getPokemon() { // grab only pokemon list elements, not references list
-    let pokedex = document.getElementById("pokedex");
-    pokemon = pokedex.getElementsByTagName("li");
-}
-function hidePokemon() { // hide all pokemon list elements
-    for (i = 0; i < pokemon.length; i++) {
-        pokemon[i].style.display = "none";
-    }
-}
-function resetSearch() { // allow for multiple searches without reloading page
-    for (i = 0; i < pokemon.length; i++) {
-        pokemon[i].style.display = "block";
-    }
-}
 function searchPokemon(term, mode) {
     // display search results area
     let searchList = document.getElementById("searchresults");
     searchList.style.display = 'block';
+
+    // reset search result area, stop when reach search title
+    while (searchList.lastElementChild != searchList.firstElementChild) {
+        searchList.removeChild(searchList.lastElementChild);
+    }
 
     let maxSearch = 0; // initialize maximum search results
     let searchResults = []; // initialize array to hold search results
