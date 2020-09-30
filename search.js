@@ -144,6 +144,10 @@ function searchNumber()
     // validate input
     let num = document.getElementById("snumber").value;
     if (!parseInt(num)) { // limit search to numerical input
+        if (num == "") {
+            resetSearch();
+            return;
+        }
         alert("Invalid input, must be numerical.");
         return;
     }
@@ -152,13 +156,16 @@ function searchNumber()
         return;
     }
     searchPokemon(num, 'number');
-    document.getElementById("snumber").value = ""; // reset search input
 }
 function searchName()
 {
     // validate input
     let nm = document.getElementById("sname").value;
     if (!nm.match(/^[a-zA-Z]+$/)) { // limit search input to alphabetical characters
+        if (nm == "") {
+            resetSearch();
+            return;
+        }
         alert("Invalid input, must be alphabetical characters");
         return;
     }
@@ -166,8 +173,8 @@ function searchName()
         alert("Invalid input, must be less than 20 characters");
         return;
     }
+    
     searchPokemon(nm.toLowerCase(), 'name');
-    document.getElementById("sname").value = ""; // reset search input
 }
 function searchPokemon(term, mode) {
     // display search results area
@@ -196,7 +203,17 @@ function searchPokemon(term, mode) {
     else { // report no search results
         let noResults = document.createElement("li");
         let noResultsText = document.createTextNode("No results for that search term.");
+        noResults.id = "noresults";
         noResults.appendChild(noResultsText);
         searchList.appendChild(noResults);
     }
+}
+
+function resetSearch() {
+    // hide search area
+    let searchList = document.getElementById("searchresults");
+    searchList.style.display = "none";
+    // re-initialize initial spacing
+    let pokeInitial = document.getElementById("initial");
+    pokeInitial.style.marginTop = '120px';
 }

@@ -52,6 +52,9 @@ ul li {
     margin-top: 50px;
     margin-bottom: 50px;
     width: 625px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding-top: 5px;
+    border-radius: 5px;
 }
 #searchresults {
     color: white;
@@ -61,9 +64,13 @@ ul li {
 }
 #searchtitle {
     font-weight: 900;
+    background-color: rgb(136, 5, 5);
 }
 #searchresults li .number {
     background-color: rgb(184, 6, 6);
+}
+#noresults {
+    background: none;
 }
 hr {
     height: 2px;

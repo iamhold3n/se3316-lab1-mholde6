@@ -26,7 +26,7 @@
             </svg>
 
             <form class="search" onsubmit="searchNumber(); return false">
-                <input id="snumber" type="text" placeholder="Search by number">
+                <input id="snumber" type="text" placeholder="Search by number" oninput="searchNumber(); return false">
                 <button>
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 20 20">
                         <title>search</title>
@@ -35,7 +35,7 @@
                 </button>
             </form>
             <form class="search" onsubmit="searchName(); return false">
-                <input id="sname" type="text" placeholder="Search by name">
+                <input id="sname" type="text" placeholder="Search by name" oninput="searchName(); return false">
                 <button>
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 20 20">
                         <title>search</title>
