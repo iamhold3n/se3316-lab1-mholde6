@@ -19,32 +19,32 @@ let pokemonList = [{number: '1', name: "Bulbasaur", type1: "GRASS", type2: "POIS
             {number: '19', name: "Rattata", type1: "NORMAL", type2: null, HP: 30, ATK: 56, DEF: 35, SPATK: 25, SPDEF: 35, SPD: 72, desc: "Bites anything when it attacks. Small and very quick, it is a common sight in many places."},
             {number: '20', name: "Raticate", type1: "NORMAL", type2: null, HP: 55, ATK: 81, DEF: 60, SPATK: 50, SPDEF: 70, SPD: 97, desc: "It uses its whiskers to maintain its balance. It apparently slows down if they are cut off."}]
 
-populateList(pokemonList, "initial", pokemonList.length);
-function populateList(list, location, num) { // grab and display all pokemon from list in pokedex
+populateList(pokemonList, "initial", pokemonList.length); // grab and display all pokemon from list in pokedex
+function populateList(list, location, num) { // populate from list (pokemon list or search result list) in area (search or pokedex) for list length
     let pokedex = document.getElementById(location);
 
     for (i = 0; i < num; i++) {
-        let pokemonEntry = document.createElement("li");
+        let pokemonEntry = document.createElement("li"); // display pokemon number
         let number = document.createElement("span");
         number.className = "number";
         let numberData = document.createTextNode(list[i].number);
         number.appendChild(numberData);
         pokemonEntry.appendChild(number);
 
-        let name = document.createElement("span");
+        let name = document.createElement("span"); // display pokemon name
         name.className = "name";
         let nameData = document.createTextNode(list[i].name);
         name.appendChild(nameData);
         pokemonEntry.appendChild(name);
 
-        let image = document.createElement("div");
+        let image = document.createElement("div"); // display pokemon image
         image.className = "image";
         let imageImg = document.createElement("img");
         imageImg.src = "images/" + list[i].number + ".png";
         image.appendChild(imageImg);
         pokemonEntry.appendChild(image);
 
-        let typeContainer = document.createElement("div");
+        let typeContainer = document.createElement("div"); // display pokemon type(s)
         typeContainer.className = "typecontainer";
         let type1 = document.createElement("span");
         type1.className = "type " + list[i].type1.toLowerCase();
@@ -60,7 +60,7 @@ function populateList(list, location, num) { // grab and display all pokemon fro
         }
         pokemonEntry.appendChild(typeContainer);
 
-        let statContainer = document.createElement("div");
+        let statContainer = document.createElement("div"); // display pokemon base stats
         statContainer.className = "statcontainer";
         let hp = document.createElement("span");
         hp.className = "stat";
@@ -130,7 +130,7 @@ function populateList(list, location, num) { // grab and display all pokemon fro
         
         pokemonEntry.appendChild(statContainer);
 
-        let desc = document.createElement("div");
+        let desc = document.createElement("div"); // display pokemon description
         desc.className = "desc";
         let descData = document.createTextNode(list[i].desc);
         desc.appendChild(descData);
@@ -144,7 +144,7 @@ function searchNumber()
     // validate input
     let num = document.getElementById("snumber").value;
     if (!parseInt(num)) { // limit search to numerical input
-        if (num == "") {
+        if (num == "") { // blank input resets search area, doesn't prompt error message
             resetSearch();
             return;
         }
@@ -155,6 +155,7 @@ function searchNumber()
         alert("Invalid input, must be between 1 and 20.");
         return;
     }
+
     searchPokemon(num, 'number');
 }
 function searchName()
@@ -162,7 +163,7 @@ function searchName()
     // validate input
     let nm = document.getElementById("sname").value;
     if (!nm.match(/^[a-zA-Z]+$/)) { // limit search input to alphabetical characters
-        if (nm == "") {
+        if (nm == "") { // blank input resets search area, doesn't prompt error message
             resetSearch();
             return;
         }
